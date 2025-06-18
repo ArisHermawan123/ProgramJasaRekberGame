@@ -1,0 +1,208 @@
+export const AllProducts = [
+  {
+    id: 1,
+    nama: "Akun Mobile laggend",
+    harga: 150000,
+    gambar: "https://placehold.co/250x150",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 1,
+    nama: "Akun Mobile laggend",
+    harga: 150000,
+    gambar: "https://placehold.co/250x150",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 1,
+    nama: "Akun Mobile laggend",
+    harga: 150000,
+    gambar: "https://placehold.co/250x150",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Freefire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+];
+
+export const FreeFireProducts = [
+  {
+    id: 1,
+    nama: "Akun Free fire",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+];
+
+export const MobileLegensProducts = [
+  {
+    id: 1,
+    nama: "Akun Mobile Legens",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+];
+export const PesMobileProducts = [
+  {
+    id: 1,
+    nama: "Pes Mobile",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+];
+export const SosialMediaProducts = [
+  {
+    id: 1,
+    nama: "Akun Tiktok",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 2,
+    nama: "Akun Instagram",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+  {
+    id: 3,
+    nama: "Akun Youtube",
+    harga: 80000,
+    gambar: "https://placehold.co/250x150/000000/FFF",
+    createdAt: "2025-06-17T09:00:00",
+  },
+];
