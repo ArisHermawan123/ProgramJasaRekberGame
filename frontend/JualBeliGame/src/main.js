@@ -57,6 +57,8 @@ function saveProduk() {
 }
 
 function renderSemuaProduk() {
+  let totalProduk = 0;
+
   for (const k in produkPerKategori) {
     const container = document.getElementById("produk-" + k);
     const titleEl = document.getElementById(k);
@@ -64,7 +66,9 @@ function renderSemuaProduk() {
 
     container.innerHTML = "";
 
-    if (produkPerKategori[k].length === 0) {
+    const produkList = produkPerKategori[k];
+
+    if (!produkList || produkList.length === 0) {
       container.style.display = "none";
       titleEl.style.display = "none";
       continue;
@@ -73,7 +77,9 @@ function renderSemuaProduk() {
     container.style.display = "flex";
     titleEl.style.display = "block";
 
-    produkPerKategori[k].forEach((p) => {
+    produkList.forEach((p) => {
+      totalProduk++; // Hitung total produk
+
       const html = `
         <div class="col-md-4 mb-3">
           <div class="card h-100">
@@ -81,12 +87,18 @@ function renderSemuaProduk() {
             <div class="card-body">
               <h5 class="card-title">${p.judul}</h5>
               <p>${p.deskripsi}</p>
-              <p class="text-muted">Rp ${p.harga}</p>
+              <p class="text-muted">Rp ${p.harga.toLocaleString()}</p>
             </div>
           </div>
         </div>`;
       container.insertAdjacentHTML("beforeend", html);
     });
+  }
+
+  // Tampilkan atau sembunyikan pesan "belum ada produk"
+  const noProdukMessage = document.getElementById("noProdukMessage");
+  if (noProdukMessage) {
+    noProdukMessage.style.display = totalProduk === 0 ? "block" : "none";
   }
 }
 
@@ -102,23 +114,80 @@ const uploadForm = document.getElementById("uploadForm");
 if (uploadForm) {
   uploadForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const judul = document.getElementById("judul").value;
-    const deskripsi = document.getElementById("deskripsi").value;
-    const harga = document.getElementById("harga").value;
+
+    const judul = document.getElementById("judul").value.trim();
+    const deskripsi = document.getElementById("deskripsi").value.trim();
+    const harga = parseInt(document.getElementById("harga").value);
     const kategori = document.getElementById("kategori").value;
     const file = document.getElementById("gambar").files[0];
 
-    if (!judul || !deskripsi || !harga || !kategori || !file) {
-      showFeedback("uploadFeedback", "Semua kolom harus diisi dan gambar harus dipilih!", "danger");
+    // ===== VALIDASI =====
+    if (judul.length < 5) {
+      showFeedback("uploadFeedback", "Judul harus minimal 5 karakter!", "danger");
       return;
     }
 
+    if (deskripsi.length < 10) {
+      showFeedback("uploadFeedback", "Deskripsi harus minimal 10 karakter!", "danger");
+      return;
+    }
+
+    if (isNaN(harga) || harga <= 1000 || harga % 1000 !== 0) {
+      showFeedback("uploadFeedback", "Harga harus lebih dari 1000!", "danger");
+      return;
+    }
+
+    if (!kategori) {
+      showFeedback("uploadFeedback", "Kategori harus dipilih!", "danger");
+      return;
+    }
+
+    if (!file || !file.type.startsWith("image/")) {
+      showFeedback("uploadFeedback", "Pilih gambar yang valid (jpeg/png)!", "danger");
+      return;
+    }
+
+    if (file.size > 500000) {
+      showFeedback("uploadFeedback", "Ukuran gambar maksimal 500 KB!", "danger");
+      return;
+    }
+
+    document.getElementById("judul").addEventListener("input", function () {
+      const judul = this.value.toLowerCase();
+      const kategoriSelect = document.getElementById("kategori");
+
+      if (judul.includes("free fire")) {
+        kategoriSelect.value = "Free Fire";
+      } else if (judul.includes("mobile legends") || judul.includes("ml")) {
+        kategoriSelect.value = "Mobile Legends";
+      } else if (judul.includes("pes") || judul.includes("efootball")) {
+        kategoriSelect.value = "PES Mobile";
+      } else if (judul.includes("pubg")) {
+        kategoriSelect.value = "PUBG Mobile";
+      } else {
+        kategoriSelect.value = ""; // Kosongkan jika tidak cocok
+      }
+    });
+    const lowerJudul = judul.toLowerCase();
+    let kategoriDariJudul = "";
+
+    if (lowerJudul.includes("free fire")) kategoriDariJudul = "Free Fire";
+    else if (lowerJudul.includes("mobile legends") || lowerJudul.includes("ml")) kategoriDariJudul = "Mobile Legends";
+    else if (lowerJudul.includes("pes") || lowerJudul.includes("efootball")) kategoriDariJudul = "PES Mobile";
+    else if (lowerJudul.includes("pubg")) kategoriDariJudul = "PUBG Mobile";
+
+    if (kategoriDariJudul && kategori !== kategoriDariJudul) {
+      showFeedback("uploadFeedback", `Kategori harus dipilih sesuai dengan isi judul, yaitu: ${kategoriDariJudul}`, "danger");
+      return;
+    }
+
+    // ===== LANJUTKAN PROSES UPLOAD =====
     const reader = new FileReader();
     reader.onload = (ev) => {
       const produk = {
         judul,
         deskripsi,
-        harga: parseInt(harga),
+        harga,
         imageUrl: ev.target.result,
         tanggal: getTodayDate(),
       };
@@ -130,6 +199,7 @@ if (uploadForm) {
 
       showFeedback("uploadFeedback", "Produk berhasil diupload dan ditampilkan!");
     };
+
     reader.readAsDataURL(file);
   });
 }
