@@ -1,6 +1,6 @@
 // ======= Login.js =======
 const users = [
-  { username: "admin", password: "1234", role: "admin" },
+  { username: "adminArisStore28", password: "290408", role: "admin" },
   { username: "user", password: "1234", role: "user" },
 ];
 
